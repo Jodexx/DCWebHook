@@ -1,0 +1,20 @@
+Webhook: "" # here your discord webhook
+Embed: # Placeholders: %player% %wingroup% %casetype% %animation% %casetitle%
+  Title: ""
+  Description: ""
+  Color:
+    r: 255
+    g: 255
+    b: 255
+  Footer:
+    Text: ""
+    Icon: ""
+  Author:
+    Name: ""
+    Url: ""
+    Icon: ""
+  Fields:
+    field1:
+      Title: ""
+      Value: ""
+      Inline: false
