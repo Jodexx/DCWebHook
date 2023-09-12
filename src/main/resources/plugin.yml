@@ -1,7 +1,7 @@
 name: DCWebHook
 version: '${version}'
 main: com.jodexindustries.dcwebhook.DCWebHook
-authors: [_Jodex__]
+authors: [_Jodex__, KukiVlad]
 website: https://jodexindustries.space
 depend:
   - DonateCase

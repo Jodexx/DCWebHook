@@ -1,14 +1,14 @@
 Webhook: "" # here your discord webhook
-Embed: # Placeholders: %player% %wingroup% %casetype% %animation% %casetitle%
-  Title: ""
+Embed: # Placeholders: %player%, %wingroup%, %casetype%, %animation%, %casetitle%.
+  Title: "DonateCase, opening case:"
   Description: ""
   Color:
-    r: 255
-    g: 255
-    b: 255
+    r: 43
+    g: 45
+    b: 49
   Footer:
-    Text: ""
-    Icon: ""
+    Text: "DCWebHook | Addon for DonateCase"
+    Icon: "https://cdn.discordapp.com/icons/860809265689788447/3031feb820fd76cdaffd2a86dc7a12f3.png"
   Author:
     Name: ""
     Url: ""
@@ -16,5 +16,13 @@ Embed: # Placeholders: %player% %wingroup% %casetype% %animation% %casetitle%
   Fields:
     field1:
       Title: ""
-      Value: ""
+      Value: "**Player:** %player%"
+      Inline: false
+    field2:
+      Title: ""
+      Value: "**Type:** %casetype%"
+      Inline: false
+    field3:
+      Title: ""
+      Value: "**Prize:** %wingroup%"
       Inline: false
