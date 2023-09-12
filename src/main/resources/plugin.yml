@@ -3,3 +3,5 @@ version: '${version}'
 main: com.jodexindustries.dcwebhook.DCWebHook
 authors: [_Jodex__]
 website: https://jodexindustries.space
+depend:
+  - DonateCase
