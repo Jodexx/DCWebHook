@@ -2,7 +2,6 @@ package com.jodexindustries.dcwebhook.events;
 
 import com.jodexindustries.dcwebhook.DCWebHook;
 import com.jodexindustries.dcwebhook.tools.DiscordWebhook;
-import com.jodexindustries.donatecase.api.Case;
 import com.jodexindustries.donatecase.api.events.AnimationEndEvent;
 import com.jodexindustries.donatecase.tools.CustomConfig;
 import org.bukkit.Bukkit;
@@ -76,7 +75,6 @@ public class EventListener implements Listener {
                 int g = DCWebHook.customConfig.getConfig().getInt("Embed.Color.g");
                 int b = DCWebHook.customConfig.getConfig().getInt("Embed.Color.b");
                 object.setColor(new Color(r, g, b));
-
                 discordWebhook.addEmbed(object);
                 try {
                     discordWebhook.execute();
