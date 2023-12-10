@@ -43,4 +43,15 @@ public class MainCommand implements SubCommand {
     public SubCommandType getType() {
         return SubCommandType.ADMIN;
     }
+    @Override
+    public String[] getArgs() {
+        String[] args = new String[2];
+        args[0] = "webhook";
+        args[1] = "reload";
+        return args;
+    }
+    @Override
+    public String getDescription() {
+        return "Reload config";
+    }
 }
