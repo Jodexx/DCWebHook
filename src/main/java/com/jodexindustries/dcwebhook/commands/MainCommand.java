@@ -45,9 +45,8 @@ public class MainCommand implements SubCommand {
     }
     @Override
     public String[] getArgs() {
-        String[] args = new String[2];
-        args[0] = "webhook";
-        args[1] = "reload";
+        String[] args = new String[1];
+        args[0] = "reload";
         return args;
     }
     @Override
