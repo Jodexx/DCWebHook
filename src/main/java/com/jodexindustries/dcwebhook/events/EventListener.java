@@ -18,8 +18,8 @@ public class EventListener implements Listener {
     public void onAnimationEnd(AnimationEndEvent e) {
         String player = e.getPlayer().getName();
         String animation = e.getAnimation();
-        String caseType = e.getCaseType();
-        String winGroup = e.getWinGroup();
+        String caseType = e.getCaseData().getCaseName();
+        String winGroup = e.getWinItem().getGroup();
         String caseTitle = ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', new CustomConfig().getConfig().getString("DonatCase.Cases." + caseType + ".Title")));
         Bukkit.getScheduler().runTaskAsynchronously(DCWebHook.plugin,  () -> {
             String webhook = DCWebHook.customConfig.getConfig().getString("Webhook");

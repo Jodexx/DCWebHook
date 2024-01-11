@@ -3,7 +3,6 @@ package com.jodexindustries.dcwebhook;
 import com.jodexindustries.dcwebhook.commands.MainCommand;
 import com.jodexindustries.dcwebhook.events.EventListener;
 import com.jodexindustries.dcwebhook.tools.CustomConfig;
-import com.jodexindustries.donatecase.api.SubCommand;
 import com.jodexindustries.donatecase.api.SubCommandManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
