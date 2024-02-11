@@ -2,8 +2,8 @@ package com.jodexindustries.dcwebhook.commands;
 
 import com.jodexindustries.dcwebhook.DCWebHook;
 import com.jodexindustries.dcwebhook.tools.Tools;
-import com.jodexindustries.donatecase.api.SubCommand;
-import com.jodexindustries.donatecase.api.SubCommandType;
+import com.jodexindustries.donatecase.api.data.SubCommand;
+import com.jodexindustries.donatecase.api.data.SubCommandType;
 import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
