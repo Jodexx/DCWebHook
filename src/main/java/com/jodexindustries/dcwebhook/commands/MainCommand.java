@@ -1,6 +1,6 @@
 package com.jodexindustries.dcwebhook.commands;
 
-import com.jodexindustries.dcwebhook.DCWebHook;
+import com.jodexindustries.dcwebhook.bootstrap.DCWebHook;
 import com.jodexindustries.dcwebhook.tools.Tools;
 import com.jodexindustries.donatecase.api.data.SubCommand;
 import com.jodexindustries.donatecase.api.data.SubCommandType;
@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainCommand implements SubCommand {
+    private final DCWebHook dcWebHook;
+    public MainCommand(DCWebHook dcWebHook) {
+        this.dcWebHook = dcWebHook;
+    }
 
     @Override
     public void execute(CommandSender sender, String[] args) {
@@ -18,7 +22,7 @@ public class MainCommand implements SubCommand {
         } else {
             if(args[0].equalsIgnoreCase("reload")) {
                 sender.sendMessage(Tools.rc("&aConfig reloaded!"));
-                DCWebHook.plugin.reloadConfig();
+                dcWebHook.reloadConfig();
             }
         }
     }

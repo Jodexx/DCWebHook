@@ -1,0 +1,3 @@
+name: DCWebHook
+version: '${version}'
+main: com.jodexindustries.dcwebhook.bootstrap.DCWebHookAddon
