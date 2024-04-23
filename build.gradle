@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.jodexindustries'
-version = '1.0.5'
+version = '1.0.6'
 
 repositories {
     mavenCentral()
@@ -23,7 +23,7 @@ repositories {
 
 dependencies {
     compileOnly "org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT"
-    compileOnly "com.jodexindustries.donatecase:DonateCaseAPI:2.2.0.1"
+    compileOnly "com.jodexindustries.donatecase:DonateCaseAPI:2.2.0.8"
 
 }
 

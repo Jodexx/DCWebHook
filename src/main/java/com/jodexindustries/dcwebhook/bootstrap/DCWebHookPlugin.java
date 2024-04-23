@@ -2,6 +2,7 @@ package com.jodexindustries.dcwebhook.bootstrap;
 
 import com.jodexindustries.dcwebhook.tools.CustomConfig;
 import com.jodexindustries.dcwebhook.tools.Tools;
+import com.jodexindustries.donatecase.api.CaseManager;
 import com.jodexindustries.donatecase.api.SubCommandManager;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,16 +12,18 @@ import java.util.logging.Logger;
 
 public final class DCWebHookPlugin extends JavaPlugin implements DCWebHook {
     public static CustomConfig customConfig;
+    private CaseManager api;
 
     @Override
     public void onEnable() {
+        api = new CaseManager(this);
         Tools.load(this);
         saveConfig();
         reloadConfig();
     }
     @Override
     public void onDisable() {
-        SubCommandManager.unregisterSubCommand("webhook");
+        api.getSubCommandManager().unregisterSubCommand("webhook");
     }
     public void reloadConfig() {
         customConfig = new CustomConfig(getDataFolder());
@@ -38,6 +41,11 @@ public final class DCWebHookPlugin extends JavaPlugin implements DCWebHook {
     @Override
     public Logger getAddonLogger() {
         return getLogger();
+    }
+
+    @Override
+    public CaseManager getAPI() {
+        return api;
     }
 
     public void saveConfig() {

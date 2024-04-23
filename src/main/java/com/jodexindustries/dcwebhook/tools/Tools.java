@@ -3,7 +3,6 @@ package com.jodexindustries.dcwebhook.tools;
 import com.jodexindustries.dcwebhook.bootstrap.DCWebHook;
 import com.jodexindustries.dcwebhook.commands.MainCommand;
 import com.jodexindustries.dcwebhook.events.EventListener;
-import com.jodexindustries.donatecase.api.SubCommandManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
@@ -19,7 +18,7 @@ public class Tools {
             return;
         }
         Bukkit.getServer().getPluginManager().registerEvents(new EventListener(dcWebHook), dcWebHook.getPlugin());
-        SubCommandManager.registerSubCommand("webhook", new MainCommand(dcWebHook));
+        dcWebHook.getAPI().getSubCommandManager().registerSubCommand("webhook", new MainCommand(dcWebHook));
     }
     public static String rc(String text) {
         return ChatColor.translateAlternateColorCodes('&', text);
