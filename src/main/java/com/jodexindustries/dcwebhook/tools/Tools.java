@@ -5,8 +5,9 @@ import com.jodexindustries.dcwebhook.commands.MainCommand;
 import com.jodexindustries.dcwebhook.config.Config;
 import com.jodexindustries.dcwebhook.events.EventListener;
 import com.jodexindustries.donatecase.api.Case;
+import com.jodexindustries.donatecase.api.data.SubCommandType;
+import com.jodexindustries.donatecase.api.data.subcommand.SubCommand;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 
 import java.util.logging.Level;
 
@@ -21,25 +22,27 @@ public class Tools {
 
     public void load() {
         String ver = Case.getInstance().getDescription().getVersion();
-        ver = ver.replaceAll("\\.", "");
-        int intVer = Integer.parseInt(ver);
-        if(intVer < 2134) {
-            main.getLogger().log(Level.SEVERE, "Unsupported version of the DonateCase! Use >2.1.3.4");
+        int intVer = com.jodexindustries.donatecase.tools.Tools.getPluginVersion(ver);
+        if (intVer < 2245) {
+            main.getLogger().log(Level.SEVERE, "Unsupported version of the DonateCase! Use >2.2.4.5");
             return;
         }
 
         Bukkit.getServer().getPluginManager().registerEvents(new EventListener(this), main.getPlugin());
+        MainCommand mainCommand = new MainCommand(this);
+        SubCommand subCommand = main.getCaseAPI().getSubCommandManager().builder("webhook")
+                .executor(mainCommand)
+                .tabCompleter(mainCommand)
+                .type(SubCommandType.ADMIN)
+                .args(new String[]{"reload"})
+                .description("Reload addon config")
+                .build();
 
-        main.getCaseAPI().getSubCommandManager().registerSubCommand("webhook",
-                new MainCommand(this));
+        main.getCaseAPI().getSubCommandManager().registerSubCommand(subCommand);
     }
 
     public void unload() {
         main.getCaseAPI().getSubCommandManager().unregisterSubCommand("webhook");
-    }
-
-    public static String rc(String text) {
-        return ChatColor.translateAlternateColorCodes('&', text);
     }
 
     public Main getMain() {

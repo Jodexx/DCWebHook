@@ -1,14 +1,17 @@
 package com.jodexindustries.dcwebhook.commands;
 
 import com.jodexindustries.dcwebhook.tools.Tools;
-import com.jodexindustries.donatecase.api.data.SubCommand;
-import com.jodexindustries.donatecase.api.data.SubCommandType;
+import com.jodexindustries.donatecase.api.data.subcommand.SubCommandExecutor;
+import com.jodexindustries.donatecase.api.data.subcommand.SubCommandTabCompleter;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainCommand implements SubCommand {
+import static com.jodexindustries.donatecase.tools.Tools.rc;
+
+public class MainCommand implements SubCommandExecutor, SubCommandTabCompleter {
     private final Tools t;
 
     public MainCommand(Tools t) {
@@ -16,19 +19,19 @@ public class MainCommand implements SubCommand {
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) {
+    public void execute(@NotNull CommandSender sender, @NotNull String label, String[] args) {
         if(args.length == 0) {
-            sender.sendMessage(Tools.rc("&a/dc webhook reload"));
+            sender.sendMessage(rc("&a/dc webhook reload"));
         } else {
             if(args[0].equalsIgnoreCase("reload")) {
-                sender.sendMessage(Tools.rc("&aConfig reloaded!"));
+                sender.sendMessage(rc("&aConfig reloaded!"));
                 t.getConfig().reloadConfig();
             }
         }
     }
 
     @Override
-    public List<String> getTabCompletions(CommandSender sender, String[] args) {
+    public List<String> getTabCompletions(@NotNull CommandSender sender, @NotNull String label, String[] args) {
         if(args.length < 1) {
             List<String> completions = new ArrayList<>();
             completions.add("webhook");
@@ -41,20 +44,5 @@ public class MainCommand implements SubCommand {
         else {
             return new ArrayList<>();
         }
-    }
-
-    @Override
-    public SubCommandType getType() {
-        return SubCommandType.ADMIN;
-    }
-    @Override
-    public String[] getArgs() {
-        String[] args = new String[1];
-        args[0] = "reload";
-        return args;
-    }
-    @Override
-    public String getDescription() {
-        return "Reload config";
     }
 }
