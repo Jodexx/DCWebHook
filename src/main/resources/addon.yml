@@ -1,3 +1,4 @@
 name: DCWebHook
 version: '${version}'
 main: com.jodexindustries.dcwebhook.bootstrap.MainAddon
+author: "_Jodex__"
