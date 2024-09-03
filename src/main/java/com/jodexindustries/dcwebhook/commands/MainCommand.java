@@ -32,17 +32,11 @@ public class MainCommand implements SubCommandExecutor, SubCommandTabCompleter {
 
     @Override
     public List<String> getTabCompletions(@NotNull CommandSender sender, @NotNull String label, String[] args) {
-        if(args.length < 1) {
-            List<String> completions = new ArrayList<>();
-            completions.add("webhook");
-            return completions;
-        } else if(args.length == 1) {
+        if(args.length == 1) {
             List<String> completions = new ArrayList<>();
             completions.add("reload");
             return completions;
         }
-        else {
-            return new ArrayList<>();
-        }
+        return new ArrayList<>();
     }
 }

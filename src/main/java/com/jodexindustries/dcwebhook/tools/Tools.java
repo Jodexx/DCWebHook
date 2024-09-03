@@ -33,7 +33,7 @@ public class Tools {
         SubCommand subCommand = main.getCaseAPI().getSubCommandManager().builder("webhook")
                 .executor(mainCommand)
                 .tabCompleter(mainCommand)
-                .type(SubCommandType.ADMIN)
+                .permission(SubCommandType.ADMIN.permission)
                 .args(new String[]{"reload"})
                 .description("Reload addon config")
                 .build();
